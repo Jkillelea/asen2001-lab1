@@ -1,0 +1,7 @@
+# Number of variables
+2
+# Coefficients of variables
+1 1
+1 -1
+# constants for equations
+3 1
