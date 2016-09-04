@@ -17,9 +17,12 @@
 |`moment_vector_coords`     |matrix of doubles|[num_moments, 4] |(magnitude, x, y, z)|
 |`support_coords`           |matrix of doubles|[num_supports, 3]|(x, y, z)|
 |`support_reaction_data`    |cell             |[num_supports, 4]|1st col chars ('F'/'M'), rest doubles (x, y, z)|
+
 -------------
 * **function**: `next_non_comment_line`
   * params: `fileID`
     * type: int file ID, from the matlab command `fopen`
   * returns: `line`, a string containing the next line that __doesn't__ begin with '#'
   * description: reads through a file and returns the next line that __doesn't__ begin with '#'. Calling this function again will return the *next* line that doesn't begin with '#'.
+
+-------------
