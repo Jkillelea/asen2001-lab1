@@ -1,7 +1,8 @@
 % Copyright Jacob Killelea, Ben Hagenau
 % MIT License
 % NOTE:: str2num('2 1') => [2, 1]. Very useful.
-function [num_forces, force_application_coords, force_vector_coords, num_moments, moment_application_coords, moment_vector_coords, NUM_SUPPORTS, support_coords, support_reaction_data] = get_file_input(filepath) % I'm kinda sorry. No other way to return all that data without lumping it together
+% function [num_forces, force_application_coords, force_vector_coords, num_moments, moment_application_coords, moment_vector_coords, NUM_SUPPORTS, support_coords, support_reaction_data] = get_file_input(filepath) % I'm kinda sorry. No other way to return all that data without lumping it together
+function force_application_coords = get_file_input(filepath) % I'm kinda sorry. No other way to return all that data without lumping it together
   NUM_SUPPORTS = 6; %const? can't be determined from input data
 
   fileID = fopen(filepath); % open file
@@ -12,36 +13,36 @@ function [num_forces, force_application_coords, force_vector_coords, num_moments
   num_moments = line(2);
 
   % allocate matrices for storing data about the forces
-  force_application_coords = zeros(num_forces, 3);
-  force_vector_coords      = zeros(num_forces, 4);
+  force_application_coords = cell(num_forces, 3);
+  force_vector_coords      = cell(num_forces, 4);
 
   % allocate matrices for storing data about the moments
-  moment_application_coords = zeros(num_moments, 3);
-  moment_vector_coords      = zeros(num_moments, 4);
+  moment_application_coords = cell(num_moments, 3);
+  moment_vector_coords      = cell(num_moments, 4);
 
   % allocate matrices for storing datat about the supports
-  support_coords        = zeros(NUM_SUPPORTS, 3);
+  support_coords        = cell(NUM_SUPPORTS, 3);
   support_reaction_data = cell(NUM_SUPPORTS, 4);
 
 % FORCE DATA
   for i = 1:num_forces % get the coordinates of where the forces are applied
-    force_application_coords(i, :) = double(str2num(next_non_comment_line(fileID)));
+    force_application_coords(i, :) = num2cell(double(str2num(next_non_comment_line(fileID))));
   end
   for i = 1:num_forces % get the vector data (magnitude, direction)
-    force_vector_coords(i, :) = double(str2num(next_non_comment_line(fileID)));
+    force_vector_coords(i, :) = num2cell(double(str2num(next_non_comment_line(fileID))));
   end
 
 % MOMENT DATA
   for i = 1:num_moments % get the coordinates of where the moments are applied
-    moment_application_coords(i, :) = double(str2num(next_non_comment_line(fileID)));
+    moment_application_coords(i, :) = num2cell(double(str2num(next_non_comment_line(fileID))));
   end
   for i = 1:num_moments % get their data (magnitude, direction)
-    moment_vector_coords(i, :) = double(str2num(next_non_comment_line(fileID)));
+    moment_vector_coords(i, :) = num2cell(double(str2num(next_non_comment_line(fileID))));
   end
 
 % SUPPORT DATA
   for i = 1:NUM_SUPPORTS % get the coordinates of the supports
-    support_coords(i, :) = double(str2num(next_non_comment_line(fileID)));
+    support_coords(i, :) = num2cell(double(str2num(next_non_comment_line(fileID))));
   end
 
   for i = 1:NUM_SUPPORTS % get the data about the reactions at each support (force or moment, vector coords)
