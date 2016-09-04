@@ -17,3 +17,4 @@
 |`moment_vector_coords`     |matrix of doubles|[num_moments, 4] |(magnitude, x, y, z)|
 |`support_coords`           |matrix of doubles|[num_supports, 3]|(x, y, z)|
 |`support_reaction_data`    |cell             |[num_supports, 4]|1st col chars ('F'/'M'), rest doubles (x, y, z)|
+-------------
