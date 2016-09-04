@@ -1,9 +1,9 @@
 # API GUIDE:
-### styled in markdown
+### styled in [markdown](https://help.github.com/articles/basic-writing-and-formatting-syntax/)
 -------------
-* function: `get_file_input`
+* **function**: `get_file_input`
   * params: `filepath`
-      * type: string file path, either relative or absolute
+    * type: string file path, either relative or absolute
 
   * returns: `[num_forces, force_application_coords, force_vector_coords, num_moments, moment_application_coords, moment_vector_coords, num_supports, support_coords, support_reaction_data]`
 
