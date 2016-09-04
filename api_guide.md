@@ -4,8 +4,8 @@
 * **function**: `get_file_input`
   * params: `filepath`
     * type: string file path, either relative or absolute
-
   * returns: `[num_forces, force_application_coords, force_vector_coords, num_moments, moment_application_coords, moment_vector_coords, num_supports, support_coords, support_reaction_data]`
+  * description: parses a file of the formatting that follows the example of the one in `data/`
 
 |name                       |type             |size             |format|
 |----                       |----             |----             |------|
@@ -18,3 +18,8 @@
 |`support_coords`           |matrix of doubles|[num_supports, 3]|(x, y, z)|
 |`support_reaction_data`    |cell             |[num_supports, 4]|1st col chars ('F'/'M'), rest doubles (x, y, z)|
 -------------
+* **function**: `next_non_comment_line`
+  * params: `fileID`
+    * type: int file ID, from the matlab command `fopen`
+  * returns: `line`, a string containing the next line that __doesn't__ begin with '#'
+  * description: reads through a file and returns the next line that __doesn't__ begin with '#'. Calling this function again will return the *next* line that doesn't begin with '#'.
