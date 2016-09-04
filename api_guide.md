@@ -5,14 +5,15 @@
   * params: `filepath`
       * type: string file path, either relative or absolute
 
-
   * returns: `[num_forces, force_application_coords, force_vector_coords, num_moments, moment_application_coords, moment_vector_coords, num_supports, support_coords, support_reaction_data]`
-    * `num_forces`                : int
-    * `force_application_coords`  : matrix of doubles, size = [num_forces, 3], (format:: x, y, z)
-    * `force_vector_coords`       : matrix of doubles, size = [num_forces, 4] (format:: magnitude, x, y, z)
-    * `num_moments`               : int
-    * `moment_application_coords` : matrix of doubles, size = [num_moments, 3],(format:: x, y, z)
-    * `moment_vector_coords`      : matrix of doubles, size = [num_moments, 4], (format:: magnitude, x, y, z)
-    * `num_supports`              : int
-    * `support_coords`            : matrix of doubles, size = [num_supports, 3], (format:: x, y, z)
-    * `support_reaction_data`     : cell, 1st column chars, all others doubles, size = [num_supports, 4] (format:: type(F/M), x, y, z)
+
+|name                       |type             |size             |format|
+|----                       |----             |----             |------|
+|`num_forces`               |int              |n/a              |n/a|
+|`force_application_coords` |matrix of doubles|[num_forces, 3]  |(x, y, z)|
+|`force_vector_coords`      |matrix of doubles|[num_forces, 4]  |(magnitude, x, y, z)|
+|`num_moments`              |int              |n/a              |n/a|
+|`moment_application_coords`|matrix of doubles|[num_moments, 3] |(x, y, z)|
+|`moment_vector_coords`     |matrix of doubles|[num_moments, 4] |(magnitude, x, y, z)|
+|`support_coords`           |matrix of doubles|[num_supports, 3]|(x, y, z)|
+|`support_reaction_data`    |cell             |[num_supports, 4]|1st col chars ('F'/'M'), rest doubles (x, y, z)|
