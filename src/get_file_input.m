@@ -1,8 +1,8 @@
 % Copyright Jacob Killelea, Ben Hagenau
 % MIT License
 % NOTE:: str2num('2 1') => [2, 1]. Very useful.
-% function [num_forces, force_application_coords, force_vector_coords, num_moments, moment_application_coords, moment_vector_coords, NUM_SUPPORTS, support_coords, support_reaction_data] = get_file_input(filepath) % I'm kinda sorry. No other way to return all that data without lumping it together
-function force_application_coords = get_file_input(filepath) % I'm kinda sorry. No other way to return all that data without lumping it together
+function [num_forces, force_application_coords, force_vector_coords, num_moments, moment_application_coords, moment_vector_coords, NUM_SUPPORTS, support_coords, support_reaction_data] = get_file_input(filepath) % I'm kinda sorry. No other way to return all that data without lumping it together
+% function force_application_coords = get_file_input(filepath) % I'm kinda sorry. No other way to return all that data without lumping it together
   NUM_SUPPORTS = 6; %const? can't be determined from input data
 
   fileID = fopen(filepath); % open file
@@ -49,7 +49,8 @@ function force_application_coords = get_file_input(filepath) % I'm kinda sorry. 
     tmp = str2mat(next_non_comment_line(fileID)); % get the line as a character array (since it's mixed characters and numbers)
     tmp = strsplit(tmp);    % split into cell, which eliminates whitespace nicely (ex: 'F' '1.0' '6.0' '-7.0' '')
                             %                                                                                 ^ extra column for some reason
-    for j = 1:length(tmp)-1 % ignore the last column in tmp, since it doesn't contain any data
+                            % NOTE:: length() is a very screwy function, since it'll return the lasrgest dimension of an array, not simply the length. It's used here because it's called on something we know is only 1 dimension.
+    for j = 1:length(tmp)-1                 % ignore the last column in tmp, since it doesn't contain any data
       support_reaction_data{i, j} = tmp{j}; % enter the data into each row of the support_reaction_data cell-array
     end
     for j = 2:length(tmp)-1
