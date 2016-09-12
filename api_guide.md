@@ -15,6 +15,7 @@
 |`num_moments`              |int             |n/a              |n/a|
 |`moment_application_coords`|cell of doubles |[num_moments, 3] |(x, y, z)|
 |`moment_vector_coords`     |cell of doubles |[num_moments, 4] |(magnitude, x, y, z)|
+|`num_supports`             |int             |n/a              |n/a
 |`support_coords`           |cell of doubles |[num_supports, 3]|(x, y, z)|
 |`support_reaction_data`    |cell of 2 types |[num_supports, 4]|1st col chars ('F'/'M'), rest doubles (x, y, z)|
 
