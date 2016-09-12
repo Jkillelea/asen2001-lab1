@@ -26,16 +26,16 @@
   * **description**: reads through a file and returns the next line that doesn't begin with '#'. Calling this function again will return the *next* line that doesn't begin with '#'.
   * **example:**
     ```matlab
-    file = "this is line 1"
-           "# this is a comment line"
-           "this is line 3"
+    file = 'this is line 1'
+           '# this is a comment line'
+           'this is line 3'
 
     fileID = fopen('path/to/file', 'r'); % open file for reading
 
     next_non_comment_line(fileID);
-      = "this is line 1"
+      = 'this is line 1'
     next_non_comment_line(fileID); % the line that started with a '#' is skipped
-      = "this is line 3"  
+      = 'this is line 3'  
     ```
 
 -------------
