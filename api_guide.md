@@ -24,5 +24,18 @@
     * type: int file ID, from the matlab command `fopen`
   * **returns**: `line`, a string containing the next line that _doesn't_ begin with '#'
   * **description**: reads through a file and returns the next line that doesn't begin with '#'. Calling this function again will return the *next* line that doesn't begin with '#'.
+  * **example:**
+    ```matlab
+    file = "this is line 1"
+           "# this is a comment line"
+           "this is line 3"
+
+    fileID = fopen('path/to/file', 'r'); % open file for reading
+
+    next_non_comment_line(fileID);
+      = "this is line 1"
+    next_non_comment_line(fileID); % the line that started with a '#' is skipped
+      = "this is line 3"  
+    ```
 
 -------------
