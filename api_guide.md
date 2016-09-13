@@ -47,6 +47,7 @@
   * **description**: performs the operation sqrt(x^2 + y^2 + z^2)
   * **example**:
     ```matlab
+
     magnitude([3, 4, 0]) % => 5
     ```
 
@@ -58,6 +59,7 @@
   * **description**: Given a magnitude and direction, returns a 3D vector pointing in that direction, of the magnitude given.
   * **example**:
     ```matlab
+
     to_force_vector([10, 1, 2, 3]) % => [2.6726, 5.3452, 8.0178]
     ```
 
