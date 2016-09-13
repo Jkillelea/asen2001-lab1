@@ -49,6 +49,7 @@
     ```matlab
     magnitude([3, 4, 0]) % => 5
     ```
+
 -------------
 * **function**: `to_force_vector`
   * **params**: `force`, which is composed of `[f, dx, dy, dz]`
@@ -59,6 +60,7 @@
     ```matlab
     to_force_vector([10, 1, 2, 3]) % => [2.6726, 5.3452, 8.0178]
     ```
+
 -------------
 * **function**: `to_unit_vector`
   * **params**: `vector`, which composed of `[x, y, z]`
@@ -70,4 +72,5 @@
     unit = to_unit_vector([1, 2, 3]) % => [0.2673 0.5345 0.8018]
     magnitude(unit)                  % => 1
     ```
+
 -------------
