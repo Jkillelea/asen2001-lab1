@@ -70,6 +70,7 @@
   * **example**:
     ```matlab
     unit = to_unit_vector([1, 2, 3]) % => [0.2673 0.5345 0.8018]
+
     magnitude(unit)                  % => 1
     ```
 
