@@ -40,3 +40,34 @@
     ```
 
 -------------
+* **function**: `magnitude`
+  * **params**: `[x, y, z]`
+    * type: 1x3 numeric vector
+  * **returns**: `m`, a scalar
+  * **description**: performs the operation sqrt(x^2 + y^2 + z^2)
+  * **example**:
+    ```matlab
+    magnitude([3, 4, 0]) % => 5
+    ```
+-------------
+* **function**: `to_force_vector`
+  * **params**: `force`, which is composed of `[f, dx, dy, dz]`
+    * type: 1x4 numeric vector *or* cell.
+  * **returns**: `vector`, a 1x3 numeric vector of magnitude `f`, pointing in the direction of `[dx, dy, dz]`
+  * **description**: Given a magnitude and direction, returns a 3D vector pointing in that direction, of the magnitude given.
+  * **example**:
+    ```matlab
+    to_force_vector([10, 1, 2, 3]) % => [2.6726, 5.3452, 8.0178]
+    ```
+-------------
+* **function**: `to_unit_vector`
+  * **params**: `vector`, which composed of `[x, y, z]`
+    * type: 1x3 numeric vector *or* cell.
+  * **returns**: `unit_vector`, a 1x3 vector containing `x`, `y`, and `z`, all divided by the magnitude of the input vector.
+  * **description**: returns `[x, y, z] ./ magnitude([x, y, z])`
+  * **example**:
+    ```matlab
+    unit = to_unit_vector([1, 2, 3]) % => [0.2673 0.5345 0.8018]
+    magnitude(unit)                  % => 1
+    ```
+-------------
