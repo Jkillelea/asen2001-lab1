@@ -1,5 +1,8 @@
 % Copyright Jacob Killelea
 % MIT License
+% NOTE: at this point, the matrix A (in the equation Ax = b) isn't populated enough to actually perform an inverse on it (kinda like 1/0 for scalar numbers)
+% This is obvously a tad of an issue, as it's preventing further calculations
+
 clear all; clc;
 addpath(genpath('.')); % add all subdirectories (./src, ./examples, ect) to path
 
@@ -14,7 +17,7 @@ for i = 1:num_forces % each force
 end
 external_force_sum = sum(forces); % find the sum of the external forces
 
-% get the total moment caused by the external forces and couple moments ----------------------------
+% Determine the total moment caused by the external forces and couple moments ----------------------------
 moments = zeros(num_moments + num_forces, 3);
 for i = 1:num_moments % each moment
   moments(i,:) = to_force_vector(moment_vector_coords(i, :)); % add it (as a vector of [x, y, z] magnitudes) to the matrix
@@ -34,3 +37,20 @@ external_moment_sum = sum(moments); % sum them up for the total moment caused by
 
 
 % solve?
+b = [external_force_sum' ; external_moment_sum']; % vertical 1x6 vector. 3 force directions, 3 moment directions
+A = zeros(num_supports, 6); % always 6 columns.
+x = zeros(num_supports, 1); % solving for numer of supports
+
+
+% populate the A matrix
+for i = 1:num_supports    % each force
+  force_or_moment = support_reaction_data{i, 1};
+  direction       = to_unit_vector(cell2mat(support_reaction_data(i, 2:4))); % get the direction into unit vector form
+  support_location = cell2mat(support_coords(i, :));
+
+  if force_or_moment == 'F' % force
+    A(1:3, i) = direction'; % note the apostrophe at the end of this call. `direction` is being transposed (so it's assigned to part of a column instead of a row)
+  else                      % moment
+    A(4:6, i) = cross(support_location, direction)'; % same apostrophe here
+  end
+end
