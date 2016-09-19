@@ -55,12 +55,11 @@ for i = 1:num_supports    % each force
   end
 end
 
-
 % HACK -- A can't be solved for with rank less than 6, or determinant = 0 or undefined
 if(det(A) ~= 0 && det(A) == NaN)
-  x = A\b
+  % nothing
 else
   % disp('WARNING: Unsolvable equation set. Data will remain in workspace');
   A = A + 1.0e-6;
-  x = A\b
 end
+x = A\b
