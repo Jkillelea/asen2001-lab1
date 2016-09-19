@@ -49,8 +49,18 @@ for i = 1:num_supports    % each force
   support_location = cell2mat(support_coords(i, :));
 
   if force_or_moment == 'F' % force
-    A(1:3, i) = direction'; % note the apostrophe at the end of this call. `direction` is being transposed (so it's assigned to part of a column instead of a row)
-  else                      % moment
-    A(4:6, i) = cross(support_location, direction)'; % same apostrophe here
+    A(1:3, i) = direction';  % note the apostrophe at the end of this call. `direction` is being transposed (so it's assigned to part of a column instead of a row)
+  else %--------------------- moment
+    A(4:6, i) = direction'; % same apostrophe here
   end
+end
+
+
+% HACK -- A can't be solved for with rank less than 6, or determinant = 0 or undefined
+if(det(A) ~= 0 && det(A) == NaN)
+  x = A\b
+else
+  % disp('WARNING: Unsolvable equation set. Data will remain in workspace');
+  A = A + 1.0e-6;
+  x = A\b
 end
