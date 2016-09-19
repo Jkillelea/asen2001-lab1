@@ -2,12 +2,13 @@
 % MIT License
 % NOTE: at this point, the matrix A (in the equation Ax = b) isn't populated enough to actually perform an inverse on it (kinda like 1/0 for scalar numbers)
 % This is obvously a tad of an issue, as it's preventing further calculations
-
 clear all; clc;
 addpath(genpath('.')); % add all subdirectories (./src, ./examples, ect) to path
 
+DATA_FILE_PATH = 'data/Lab1_Input.txt';
+
 % all the data from the config file is received inline thusly. See API Guide for details. ----------
-[num_forces, force_application_coords, force_vector_coords, num_moments, moment_application_coords, moment_vector_coords, num_supports, support_coords, support_reaction_data] = get_file_input('data/Lab1_Input.txt');
+[num_forces, force_application_coords, force_vector_coords, num_moments, moment_application_coords, moment_vector_coords, num_supports, support_coords, support_reaction_data] = get_file_input(DATA_FILE_PATH);
 
 % Determine the sum of the external forces ---------------------------------------------------------
 forces = zeros(num_forces, 3);
