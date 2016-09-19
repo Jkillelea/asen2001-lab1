@@ -4,7 +4,7 @@
 function [num_forces, force_application_coords, force_vector_coords, num_moments, moment_application_coords, moment_vector_coords, NUM_SUPPORTS, support_coords, support_reaction_data] = get_file_input(filepath) % I'm kinda sorry. No other way to return all that data without lumping it together
   NUM_SUPPORTS = 6; %const? can't be determined from input data
 
-  fileID = fopen(filepath); % open file
+  fileID = fopen(which(filepath)); % open file
 
   % first data line is the number of forces and the number of moments. Cast them as ints
   line = str2num(next_non_comment_line(fileID));
