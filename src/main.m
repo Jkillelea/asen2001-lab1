@@ -1,6 +1,5 @@
 % Copyright Jacob Killelea
 % MIT License
-% NOTE: at this point, the matrix A (in the equation Ax = b) isn't populated enough to actually perform an inverse on it (kinda like 1/0 for scalar numbers)
 % This is obvously a tad of an issue, as it's preventing further calculations
 clear all; clc;
 addpath(genpath('.')); % add all subdirectories (./src, ./examples, ect) to path
