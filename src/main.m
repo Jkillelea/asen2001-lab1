@@ -4,7 +4,7 @@
 clear all; clc;
 addpath(genpath('.')); % add all subdirectories (./src, ./examples, ect) to path
 
-INPUT_FILE = 'data/Lab1_Input.txt'; % NOTE:: some of the files in data/ are only symlinks! this works fine on a max/linux/*nix box, but windows is stupid and won't follow them.
+INPUT_FILE  = 'data/Lab1_Input.txt'; % NOTE:: some of the files in data/ are only symlinks! this works fine on a max/linux/*nix box, but windows is stupid and won't follow them.
 OUTPUT_FILE = 'output_file.txt';
 
 % all the data from the config file is received inline thusly. See API Guide for details. ----------
@@ -73,4 +73,5 @@ for i = 1:num_supports
   output_cell{i, 2} = x(i);
 end
 
+% Write data to text file at OUTPUT_FILE
 output(OUTPUT_FILE, output_cell);
