@@ -1,4 +1,4 @@
-function [success] = output(outfile_path, data_cell)
+function [] = output(outfile_path, data_cell)
   % fprintf(fileID,formatSpec,A1,...,An) writes to a file nicely
 
 
@@ -17,5 +17,4 @@ function [success] = output(outfile_path, data_cell)
   end
 
   fclose(fileID);
-  success = true;
 end
