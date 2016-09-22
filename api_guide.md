@@ -77,3 +77,23 @@
     ```
 
 -------------
+* **function**: `output`
+  * **params**: `outfile_path`, a text filepath, and `data_cell`, a [N, 2] cell array
+    * type: `data_cell` should have the first column as chars, representing either forces or moments, and second column floats, representing magnitudes
+  * **returns**: nothing
+  * **description**: Writes the data in `data_cell` to the file `outfile_path`
+  * **example**:
+    ```matlab
+    data_cell =
+    'F'    [ -45.7217]
+    'F'    [-112.1199]
+    'F'    [  37.1298]
+    'F'    [ 103.3686]
+    'M'    [  93.8843]
+    'M'    [  29.7894]
+
+    outfile_path = 'output_file.txt'
+
+    output(outfile_path, data_cell);
+    ```
+-------------
