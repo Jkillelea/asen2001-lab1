@@ -5,14 +5,20 @@ function unit_vector = to_unit_vector(vector)
   if isa(vector, 'cell')
     vector = cell2mat(vector)
   end
-  dx              = vector(1); % get values from vector
-  dy              = vector(2);
-  dz              = vector(3);
+
+  dx = vector(1); % get values from vector
+  dy = vector(2);
+  dz = vector(3);
 
   vector_magnitude = magnitude([dx, dy, dz]);
-  x = dx/vector_magnitude;
-  y = dy/vector_magnitude;
-  z = dz/vector_magnitude;
 
-  unit_vector = [x, y, z];
+  if vector_magnitude == 0 % if the magnitude is 0, then return the 0 vector
+    unit_vector = [0, 0, 0];
+  else
+    x = dx/vector_magnitude;
+    y = dy/vector_magnitude;
+    z = dz/vector_magnitude;
+    unit_vector = [x, y, z];
+  end
+
 end
