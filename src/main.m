@@ -40,16 +40,13 @@ for i = 1:size(moments,2)
   external_moment_sum(i) = sum(moments(:, i));
 end
 
-% Set up force and moment matricies ----------------------------------------------------------------
 % We now have the external_force_sum, and the external_moment_sum.
 % With those two and the position vectors of the supports, the magnitude of the reactions at the supports can be calculated
 
-
-% solve?
+% Set up force and moment matricies ----------------------------------------------------------------
 b = -1 .* [external_force_sum' ; external_moment_sum']; % vertical 1x6 vector. 3 force directions, 3 moment directions
 A = zeros(num_supports, 6); % always 6 columns.
 x = zeros(num_supports, 1); % solving for numer of supports
-
 
 % populate the A matrix
 for i = 1:num_supports    % each force/moment
