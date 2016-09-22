@@ -5,6 +5,7 @@ clear all; clc;
 addpath(genpath('.')); % add all subdirectories (./src, ./examples, ect) to path
 
 INPUT_FILE = 'data/Lab1_Input.txt'; % NOTE:: some of the files in data/ are only symlinks! this works fine on a max/linux/*nix box, but windows is stupid and won't follow them.
+OUTPUT_FILE = 'output_file.txt';
 
 % all the data from the config file is received inline thusly. See API Guide for details. ----------
 [num_forces, force_application_coords, force_vector_coords, num_moments, moment_application_coords, moment_vector_coords, num_supports, support_coords, support_reaction_data] = get_file_input(INPUT_FILE);
@@ -71,4 +72,5 @@ for i = 1:num_supports
   output_cell{i, 1} = support_reaction_data{i, 1};
   output_cell{i, 2} = x(i);
 end
-% disp(output_cell);
+
+output(OUTPUT_FILE, output_cell);
