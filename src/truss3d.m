@@ -4,11 +4,11 @@
 function output_cell = truss3d(filepath)
   OUTPUT_FILE = 'output_file.txt';
 
-  % all the data from the config file is received inline thusly. See API Guide for details. ----------
+  % all the data from the config file is received inline thusly. See API Guide for details. --------
   [num_forces, force_application_coords, force_vector_coords, num_moments, moment_application_coords, moment_vector_coords, num_supports, support_coords, support_reaction_data] = get_file_input(filepath);
 
 
-  % Determine the sum of the external forces ---------------------------------------------------------
+  % Determine the sum of the external forces -------------------------------------------------------
   forces = zeros(num_forces, 3);
   for i = 1:num_forces % each force
     force = cell2mat(force_vector_coords(i, 1:4)); % select a row of cells and convert to a matrix
@@ -20,7 +20,7 @@ function output_cell = truss3d(filepath)
     external_force_sum(i) = sum(forces(:, i));
   end
 
-  % Determine the total moment caused by the external forces and couple moments ----------------------------
+  % Determine the total moment caused by the external forces and couple moments --------------------
   moments = zeros(num_moments + num_forces, 3);
   for i = 1:num_moments % each moment
     moments(i,:) = to_force_vector(moment_vector_coords(i, :)); % add it (as a vector of [x, y, z] magnitudes) to the matrix
@@ -41,7 +41,7 @@ function output_cell = truss3d(filepath)
   % We now have the external_force_sum, and the external_moment_sum.
   % With those two and the position vectors of the supports, the magnitude of the reactions at the supports can be calculated
 
-  % Set up force and moment matricies ----------------------------------------------------------------
+  % Set up force and moment matricies --------------------------------------------------------------
   b = -1 .* [external_force_sum' ; external_moment_sum']; % vertical 1x6 vector. 3 force directions, 3 moment directions
   A = zeros(num_supports, 6); % always 6 columns.
   x = zeros(num_supports, 1); % solving for numer of supports
