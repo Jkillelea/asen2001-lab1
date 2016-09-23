@@ -5,6 +5,9 @@ function [num_forces, force_application_coords, force_vector_coords, num_moments
   NUM_SUPPORTS = 6; %const? can't be determined from input data
 
   fileID = fopen(which(filepath)); % open file
+  if(fileID == -1)
+    error('ERROR:: Problem opening file "%s" ', filepath);
+  end
 
   % first data line is the number of forces and the number of moments. Cast them as ints
   line = str2num(next_non_comment_line(fileID));
