@@ -5,7 +5,7 @@ function [num_forces, force_application_coords, force_vector_coords, num_moments
   NUM_SUPPORTS = 6; %const? can't be determined from input data
 
   fileID = fopen(which(filepath)); % open file
-  if(fileID == -1)
+  if(fileID == -1)                 % if file can't be found/opened, stop and inform user.
     error('ERROR:: Problem opening file "%s" ', filepath);
   end
 
