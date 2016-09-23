@@ -13,7 +13,7 @@ function [] = output(outfile_path, data_cell)
   for i = 1:num_lines
     force_or_moment = data_cell{i, 1};
     magnitude       = data_cell{i, 2};
-    fprintf(fileID, '%s | %d\n', force_or_moment, magnitude);
+    fprintf(fileID, '%s %f\n', force_or_moment, magnitude);
   end
 
   fclose(fileID);
