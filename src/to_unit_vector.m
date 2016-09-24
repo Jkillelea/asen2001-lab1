@@ -1,3 +1,4 @@
+% Copyright Ben Hageneu and Jacob Killelea
 function unit_vector = to_unit_vector(vector)
   % Returns the unit vector in the same direction as the given vector.
   % [u, j, k] = to_unit_vector([3, 4, 5])
