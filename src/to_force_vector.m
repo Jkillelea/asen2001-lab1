@@ -1,3 +1,4 @@
+% Copyright Ben Hageneu and Jacob Killelea
 function vector = to_force_vector(force)
     % Returns a vector based on the direction and magnitude of the input vector, [f, dx, dy, dz]
     % [x, y, z] = to_force_vector([f, dx, dy, dz])
