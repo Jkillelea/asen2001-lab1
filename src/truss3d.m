@@ -1,6 +1,4 @@
-% Copyright Jacob Killelea
-% MIT License
-
+% Copyright Ben Hageneu and Jacob Killelea
 function output_cell = truss3d(filepath)
   OUTPUT_FILE = 'output_file.txt';
 
@@ -71,5 +69,5 @@ function output_cell = truss3d(filepath)
   end
 
   % Write data to text file at OUTPUT_FILE
-  output(OUTPUT_FILE, output_cell);
+  output(OUTPUT_FILE, filepath, output_cell);
 end
