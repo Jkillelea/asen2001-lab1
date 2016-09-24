@@ -1,6 +1,6 @@
 # [API](https://en.wikipedia.org/wiki/Application_programming_interface) GUIDE:
-### styled in [markdown](https://help.github.com/articles/basic-writing-and-formatting-syntax/)
-Trouble viewing this file? See it at https://github.com/Jkillelea/asen2001-lab1/blob/master/api_guide.md
+### Styled in [markdown](https://help.github.com/articles/basic-writing-and-formatting-syntax/)
+### Trouble viewing this file? See it at https://github.com/Jkillelea/asen2001-lab1/blob/master/api_guide.md
 -------------
 * **function**: `get_file_input`
   * **params**: `filepath`
