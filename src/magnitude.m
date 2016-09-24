@@ -1,4 +1,4 @@
-% Copyright Ben Hageneu and Jacob Killelea
+% Copyright Ben Hagenau and Jacob Killelea
 function m = magnitude(vector)
 	% calculates the magnitude of the 3D vector [a, b, c] according to to the formula sqrt(a^2 + b^2 + c^2)
 	a = vector(1).^2; % square them all

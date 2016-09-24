@@ -1,4 +1,4 @@
-% Copyright Ben Hageneu and Jacob Killelea
+% Copyright Ben Hagenau and Jacob Killelea
 function output_cell = truss3d(filepath)
   % Calculates support reaction forces based on the data provided in the input file
   % Returns support reaction data in the cell array output_cell

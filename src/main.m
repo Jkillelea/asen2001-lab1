@@ -1,4 +1,4 @@
-% Copyright Ben Hageneu and Jacob Killelea
+% Copyright Ben Hagenau and Jacob Killelea
 clear all; clc;
 addpath(genpath('.')); % add all subdirectories (./src, ./examples, ect) to path
 

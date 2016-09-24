@@ -1,4 +1,4 @@
-% Copyright Ben Hageneu and Jacob Killelea
+% Copyright Ben Hagenau and Jacob Killelea
 function [] = output(outfile_path, infile_path, data_cell)
   % fprintf(fileID,formatSpec,A1,...,An) writes to a file nicely
 
