@@ -4,7 +4,7 @@ function output_cell = truss3d(filepath)
   % Returns support reaction data in the cell array output_cell
   % Also outputs data to the file output_file.txt
   %
-  OUTPUT_FILE = 'output_file.txt';
+  OUTPUT_FILE = 'output.txt';
 
   % all the data from the config file is received inline thusly. See API Guide for details. --------
   [num_forces, force_application_coords, force_vector_coords, num_moments, moment_application_coords, moment_vector_coords, num_supports, support_coords, support_reaction_data] = get_file_input(filepath);
