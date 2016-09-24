@@ -20,6 +20,27 @@
 |`support_reaction_data`    |cell of 2 types |[num_supports, 4]|1st col chars ('F'/'M'), rest doubles (x, y, z)|
 
 -------------
+* **function**: `truss3d`
+  * **params**: `filepath`
+    * type: string path to file containing valid input data
+  * **returns**: `output_data`, a 2x6 Cell array containing the magnitude and type (force or moment) of the reaction generated at each support.
+  * **description**: this function contains all of the main functionality of the program, and should be the only function called by the end user. It also writes this data, along with the input data, to the file `output.txt`.
+  * **example:**
+    ```matlab
+    >> truss3d('data/Lab1_Input.txt')
+
+    ans =
+
+        'F'    [ -45.7217]
+        'F'    [-112.1199]
+        'F'    [  37.1298]
+        'F'    [ 103.3686]
+        'M'    [  93.8843]
+        'M'    [  29.7894]
+    ```
+
+
+-------------
 * **function**: `next_non_comment_line`
   * **params**: `fileID`
     * type: int file ID, from the matlab command `fopen`
