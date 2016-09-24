@@ -1,5 +1,9 @@
 % Copyright Ben Hageneu and Jacob Killelea
 function output_cell = truss3d(filepath)
+  % Calculates support reaction forces based on the data provided in the input file
+  % Returns support reaction data in the cell array output_cell
+  % Also outputs data to the file output_file.txt
+  %
   OUTPUT_FILE = 'output_file.txt';
 
   % all the data from the config file is received inline thusly. See API Guide for details. --------
