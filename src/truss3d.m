@@ -62,8 +62,12 @@ function output_cell = truss3d(filepath)
     end
   end
 
-  % Solve for F1, F2 ... M1, M2 ....
-  x = A\b;
+  if rank(A) >= num_supports % if A actually contains enough linearly independent equations to solve the matrix
+    % Solve for F1, F2 ... M1, M2 ....
+    x = A\b;
+  else
+    error('ERROR:: not enough information was provided to solve this problem');
+  end
 
   % Put resulting data into cell array so force/moment and magnitude data are in same place
   output_cell = cell(num_supports, 2);
