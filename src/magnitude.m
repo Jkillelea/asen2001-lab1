@@ -1,3 +1,4 @@
+% Copyright Ben Hageneu and Jacob Killelea
 function m = magnitude(vector)
 	% calculates the magnitude of the 3D vector a, b, c
 	a = vector(1).^2; % square them all
